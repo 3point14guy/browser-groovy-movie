@@ -1,26 +1,13 @@
 @import 'colors'; // moves variables over from colors.scss file
 
 body {
-  background-color: $light-gray;
-}
-
-.squares {
-  background-color: $light-gray;
-  border: 2px solid $black;
-  font-size: 45px;
-  height: 80px;
-  text-align: center;
-}
-
-.squares1 {
-  background-color: $light-gray;
-  border: 2px solid $black;
-  font-size: 45px;
-  height: 80px;
-  text-align: center;
+  background: url('../img/theater.jpg') no-repeat;
+  background-color: $light-blue;
+  // background-position: center;
 }
 
 h1 {
+  color: $black;
   text-align: center;
 }
 
@@ -36,29 +23,9 @@ p {
   text-align: center;
 }
 
-.win-view-x {
-  display: none;
-}
-
-.win-view-o {
-  display: none;
-}
-
-.tie-view {
-  display: none;
-}
-
 .logout-buttons {
   display: none;
 }
-
-.game-board {
-  display: none;
-}
-//
-// .game-logo {
-//   margin: 0 auto;
-// }
 
 .title-hide {
   display: none;
