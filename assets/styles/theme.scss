@@ -1,0 +1,73 @@
+@import 'colors'; // moves variables over from colors.scss file
+
+body {
+  background-color: $light-gray;
+}
+
+.squares {
+  background-color: $light-gray;
+  border: 2px solid $black;
+  font-size: 45px;
+  height: 80px;
+  text-align: center;
+}
+
+.squares1 {
+  background-color: $light-gray;
+  border: 2px solid $black;
+  font-size: 45px;
+  height: 80px;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  font-size: 55px;
+  text-align: center;
+}
+
+.instructions {
+  display: none;
+  font-size: 30px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.win-view-x {
+  display: none;
+}
+
+.win-view-o {
+  display: none;
+}
+
+.tie-view {
+  display: none;
+}
+
+.logout-buttons {
+  display: none;
+}
+
+.game-board {
+  display: none;
+}
+//
+// .game-logo {
+//   margin: 0 auto;
+// }
+
+.title-hide {
+  display: none;
+}
+
+button {
+  margin: 10px 30px;
+}
+
+.match {
+  background-color: $red;
+}
