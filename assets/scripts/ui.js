@@ -12,6 +12,7 @@ const signInSuccess = (data) => {
   $('.logout-buttons').show(2900)
   $('.login-message').text(data.user.email + ' You have successfully logged in.')
   $('.login-buttons').hide(2600)
+  $('.instructions').text('Welcome to Groovy Movie! An app that lets you keep a list of your favorite movies and their ratings.')
 }
 const signInFailure = (error) => {
   console.log('sign IN failure')
@@ -34,6 +35,8 @@ const passwordChangeFailure = function (error) {
 const logoutSuccess = function () {
   console.log('log out success')
   $('.logout-message').text('You are now logged out.')
+  $('#user-buttons').hide(2600)
+  $('.login-buttons').show(2900)
 }
 
 const logoutFailure = function (error) {
