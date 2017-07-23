@@ -41,9 +41,17 @@ const logout = function () {
   })
 }
 
+const requestAllMovies = function () {
+  console.log('api requestAllMovies')
+  return $.ajax({
+    url: config.apiOrigin + '/movies'
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  logout
+  logout,
+  requestAllMovies
 }

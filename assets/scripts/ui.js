@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./store')
+const displayMoviesTemplate = require('./templates/movie-listing.handlebars')
 
 const signUpSuccess = (data) => {
   console.log('sign UP success')
@@ -46,6 +47,16 @@ const logoutFailure = function (error) {
   $('.logout-message').text('Oops! Something went wrong.', error)
 }
 
+const allMoviesSuccess = function (data) {
+  console.log('get all Movies success')
+  $('.display-list').empty()
+  const displayMoviesHTML = displayMoviesTemplate({ movies: data.movies })
+  $('.display-list').append(displayMoviesHTML)
+}
+const allMoviesFailure = function () {
+  console.log('get all Movies failure')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -54,5 +65,7 @@ module.exports = {
   passwordChangeSuccess,
   passwordChangeFailure,
   logoutSuccess,
-  logoutFailure
+  logoutFailure,
+  allMoviesSuccess,
+  allMoviesFailure
 }

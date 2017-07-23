@@ -123,17 +123,7 @@ Create Login
     </div>
   </div>
 
-<!-- Buttons for logout and change password -->
-<div id="user-buttons" class="logout-buttons container">
-  <div class="row">
-    <div class="col-sm-12 col-sm-offset-4">
-      <button type="button" class="logout-buttons btn btn-primary btn-lg"
-      data-toggle="modal" data-target="#log-out">Log Out</button>
-      <button type="button" class="logout-buttons btn btn-primary btn-lg"
-      data-toggle="modal" data-target="#submit-change-password">Change Password</button>
-    </div>
-  </div>
-</div>
+
 <!-- modal for log out -->
   <div class="modal fade" id="log-out" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -183,8 +173,13 @@ Create Login
       </div>
     </div>
   </div>
-  <!-- base movie table -->
   <div>
+    <p class="display-list">
+    </p>
+
+  </div>
+  <!-- base movie table -->
+  <!-- <div>
     <table class="table table-bordered table-responsive table-hover">
   <thead>
     <tr>
@@ -221,21 +216,21 @@ Create Login
     </tr>
   </tbody>
 </table>
-  </div>
+  </div> -->
   <!-- buttons for movie lists -->
   <div class="api-buttons container">
     <div class="row">
       <div class="col-sm-12 col-sm-offset-4">
         <!-- need to define data targets for these buttons -->
-        <button type="button" class="btn btn-primary btn-lg"
+        <button id="all-movies" type="button" class="btn btn-primary btn-lg"
         data-toggle="modal" data-target="#XXXXXXX">View All Movies</button>
-        <button type="button" class="btn btn-primary btn-lg"
+        <button id="all-user-movies" type="button" class="btn btn-primary btn-lg"
         data-toggle="modal" data-target="#YYYYYYY">View Your Movies</button>
       </div>
     </div>
   </div>
   <!-- user movie table -->
-  <div>
+  <!-- <div>
     <table class="table table-bordered table-responsive table-hover">
   <thead>
     <tr>
@@ -293,6 +288,19 @@ Create Login
     </tr>
   </tbody>
 </table>
+</div> -->
+<!-- Buttons for logout and change password -->
+<footer class="fixed bottom">
+<div id="user-buttons" class="logout-buttons container">
+  <div class="row">
+    <div class="col-sm-12 col-sm-offset-4">
+      <button type="button" class="logout-buttons btn btn-danger btn-lg"
+      data-toggle="modal" data-target="#log-out">Log Out</button>
+      <button type="button" class="logout-buttons btn btn-danger btn-lg"
+      data-toggle="modal" data-target="#submit-change-password">Change Password</button>
+    </div>
+  </div>
 </div>
+</footer>
 </body>
 </html>

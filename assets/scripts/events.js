@@ -40,7 +40,7 @@ const onLogout = function (event) {
 const getAllMovies = function (event) {
   event.preventDefault()
   console.log('events getAllMovies')
-  api.requestAllMovies
+  api.requestAllMovies()
     .then(ui.allMoviesSuccess)
     .catch(ui.allMovieFailure)
 }
@@ -48,7 +48,7 @@ const getAllMovies = function (event) {
 // const allUserlMovies = function (event) {
 //   event.preventDefault()
 //   console.log('events allUserMovies')
-//   api.requestUserMovies
+//   api.requestUserMovies()
 //     .then(ui.userMoviesSuccess)
 //     .catch(ui.userMovieFailure)
 // }
@@ -56,7 +56,7 @@ const getAllMovies = function (event) {
 // const addMovie = function (event) {
 //   event.preventDefault()
 //   console.log('events addMovie')
-//   api.addAMovie
+//   api.addAMovie()
 //     .then(ui.addMovieSuccess)
 //     .catch(ui.addMovieFailure)
 // }
@@ -64,7 +64,7 @@ const getAllMovies = function (event) {
 // const deleteMovie = function (event) {
 //   event.preventDefault()
 //   console.log('events deleteMovie')
-//   api.deleteAMovie
+//   api.deleteAMovie()
 //     .then(ui.deleteMovieSuccess)
 //     .catch(ui.deleteMovieFailure)
 // }
@@ -72,7 +72,7 @@ const getAllMovies = function (event) {
 // const updateRating = function (event) {
 //   event.preventDefault()
 //   console.log('events updateRating')
-//   api.updateARating
+//   api.updateARating()
 //     .then(ui.updateRatingSuccess)
 //     .catch(ui.updateRatingFailure)
 // }
