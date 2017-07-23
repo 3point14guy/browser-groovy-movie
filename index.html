@@ -14,11 +14,12 @@
 </head>
 
 <body class="show container-fluid">
-  <h1 class="title-hide">Groovy Movie</h1>
+<div class="login-screen conatiner">
   <div class="conatiner">
+    <h1 class="title-hide">Welcome to Groovy Movie!</h1>
     <div class="row">
       <div class="col-xs-12 box">
-        <p class="instructions">Login to get started</p>
+        <p class="instructions">An app that lets you keep a list of your<br/> favorite movies and their ratings.</p>
     </div>
   </div>
   <br/>
@@ -42,6 +43,7 @@ Create Login
 </button>
     </div>
   </div>
+</div>
 </div>
 <!-- Modal for login -->
         <div class="modal fade" id="submit-login" tabindex="-1" role="dialog"
@@ -181,5 +183,116 @@ Create Login
       </div>
     </div>
   </div>
+  <!-- base movie table -->
+  <div>
+    <table class="table table-bordered table-responsive table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Year</th>
+      <th>Rating</th>
+      <th>Add to your list?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>The Departed</td>
+      <td>2006</td>
+      <td>4.8</td>
+      <td><button type="button" class="btn btn-primary btn-sm">Yes</button></td>
+    </tr>
+    <tr>
+      <td>Silence of the Lambs</td>
+      <td>1991</td>
+      <td>5.0</td>
+      <td><button type="button" class="btn btn-primary btn-sm">Yes</button></td>
+    </tr>
+    <tr>
+      <td>Fight Club</td>
+      <td>1999</td>
+      <td>4.9</td>
+      <td><button type="button" class="btn btn-primary btn-sm">Yes</button></td>
+    </tr>
+    <tr>
+      <td>Back to the Future</td>
+      <td>1985</td>
+      <td>4.2</td>
+      <td><button type="button" class="btn btn-primary btn-sm">Yes</button></td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <!-- buttons for movie lists -->
+  <div class="api-buttons container">
+    <div class="row">
+      <div class="col-sm-12 col-sm-offset-4">
+        <!-- need to define data targets for these buttons -->
+        <button type="button" class="btn btn-primary btn-lg"
+        data-toggle="modal" data-target="#XXXXXXX">View All Movies</button>
+        <button type="button" class="btn btn-primary btn-lg"
+        data-toggle="modal" data-target="#YYYYYYY">View Your Movies</button>
+      </div>
+    </div>
+  </div>
+  <!-- user movie table -->
+  <div>
+    <table class="table table-bordered table-responsive table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Year</th>
+      <th>Rating</th>
+      <th>Manage Movies</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>The Departed</td>
+      <td>2006</td>
+      <td>4.8</td>
+      <td>
+        <button type="button" class="btn btn-primary btn-sm">Delete</button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-primary btn-sm">Update Rating</button>
+      </td>
+    </tr>
+    <tr>
+      <td>Silence of the Lambs</td>
+      <td>1991</td>
+      <td>5.0</td>
+      <td>
+        <button type="button" class="btn btn-primary btn-sm">Delete</button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-primary btn-sm">Update Rating</button>
+      </td>
+    </tr>
+    <tr>
+      <td>Fight Club</td>
+      <td>1999</td>
+      <td>4.9</td>
+      <td>
+        <button type="button" class="btn btn-primary btn-sm">Delete</button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-primary btn-sm">Update Rating</button>
+      </td>
+    </tr>
+    <tr>
+      <td>Back to the Future</td>
+      <td>1985</td>
+      <td>4.2</td>
+      <td>
+        <button type="button" class="btn btn-primary btn-sm">Delete</button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-primary btn-sm">Update Rating</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </body>
 </html>

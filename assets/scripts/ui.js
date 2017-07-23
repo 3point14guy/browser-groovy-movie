@@ -9,10 +9,11 @@ const signUpSuccess = (data) => {
 const signInSuccess = (data) => {
   store.user = data.user
   console.log('sign IN success')
-  $('.logout-buttons').show(2900)
+  $('.api-buttons').show(1700)
+  $('.logout-buttons').show(2100)
   $('.login-message').text(data.user.email + ' You have successfully logged in.')
-  $('.login-buttons').hide(2600)
-  $('.instructions').text('Welcome to Groovy Movie! An app that lets you keep a list of your favorite movies and their ratings.')
+  $('.login-buttons').hide(1700)
+  $('.instructions').text('You are now logged in.')
 }
 const signInFailure = (error) => {
   console.log('sign IN failure')
@@ -35,8 +36,9 @@ const passwordChangeFailure = function (error) {
 const logoutSuccess = function () {
   console.log('log out success')
   $('.logout-message').text('You are now logged out.')
-  $('#user-buttons').hide(2600)
-  $('.login-buttons').show(2900)
+  $('#user-buttons').hide(1700)
+  $('.api-buttons').hide(1700)
+  $('.login-buttons').show(2300)
 }
 
 const logoutFailure = function (error) {
