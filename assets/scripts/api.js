@@ -58,12 +58,26 @@ const deleteAMovie = function (data) {
     }
   })
 }
-
+// ************************************************************
+const addAMovie = function (data) {
+  console.log('api addAMovie')
+  console.log(data)
+  return $.ajax({
+    url: config.apiOrigin + '/movies',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+// ******************************************************************
 module.exports = {
   signUp,
   signIn,
   changePassword,
   logout,
   requestAllMovies,
-  deleteAMovie
+  deleteAMovie,
+  addAMovie
 }

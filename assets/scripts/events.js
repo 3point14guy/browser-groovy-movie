@@ -57,13 +57,16 @@ const getAllMovies = function (event) {
 //     .catch(ui.userMovieFailure)
 // }
 
-// const addMovie = function (event) {
-//   event.preventDefault()
-//   console.log('events addMovie')
-//   api.addAMovie()
-//     .then(ui.addMovieSuccess)
-//     .catch(ui.addMovieFailure)
-// }
+const addMovie = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  console.log('events addMovie')
+  console.log(this)
+  console.log(event.target)
+  api.addAMovie(data)
+    .then(ui.addMovieSuccess)
+    .catch(ui.addMovieFailure)
+}
 
 const deleteMovie = function (event) {
   event.preventDefault()
@@ -88,7 +91,7 @@ const addHandlers = () => {
   $('#logout').on('submit', onLogout)
   $('#all-movies').on('click', getAllMovies)
   // $('#all-user-movies').on('click', allUserMovies)
-  // $('#add-movie').on('click', addMovie)
+  $('#add-movie').on('submit', addMovie)
   // $('#delete-movie').on('click', deleteMovie)
   // $('.update-rating').on('click', updateRating)
 }

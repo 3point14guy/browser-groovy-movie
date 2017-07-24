@@ -75,6 +75,14 @@ const deleteMovie = function (event) {
     .catch(deleteMovieFailure)
 }
 
+const addMovieSuccess = function (event) {
+  console.log('add movie success')
+  $('.add-movie').text('Movie succssfully added!')
+}
+const addMovieFailure = function (error) {
+  console.log('add movie failure', error)
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -87,5 +95,7 @@ module.exports = {
   allMoviesSuccess,
   allMoviesFailure,
   deleteMovieSuccess,
-  deleteMovieFailure
+  deleteMovieFailure,
+  addMovieSuccess,
+  addMovieFailure
 }

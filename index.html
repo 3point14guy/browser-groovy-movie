@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Groovy Movie</title>
+  <title>Groovie Movie</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Do not add `link` tags unless you know what you are doing -->
@@ -16,7 +16,7 @@
 <body class="show container-fluid">
 <div class="login-screen conatiner">
   <div class="conatiner">
-    <h1 class="title-hide">Welcome to Groovy Movie!</h1>
+    <h1 class="title-hide">Welcome to Groovie Movie!</h1>
     <div class="row">
       <div class="col-xs-12 box">
         <p class="instructions">An app that lets you keep a list of your<br/> favorite movies and their ratings.</p>
@@ -178,45 +178,6 @@ Create Login
     </p>
 
   </div>
-  <!-- base movie table -->
-  <!-- <div>
-    <table class="table table-bordered table-responsive table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Year</th>
-      <th>Rating</th>
-      <th>Add to your list?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>The Departed</td>
-      <td>2006</td>
-      <td>4.8</td>
-      <td><button type="button" class="btn btn-primary btn-sm">Yes</button></td>
-    </tr>
-    <tr>
-      <td>Silence of the Lambs</td>
-      <td>1991</td>
-      <td>5.0</td>
-      <td><button type="button" class="btn btn-primary btn-sm">Yes</button></td>
-    </tr>
-    <tr>
-      <td>Fight Club</td>
-      <td>1999</td>
-      <td>4.9</td>
-      <td><button type="button" class="btn btn-primary btn-sm">Yes</button></td>
-    </tr>
-    <tr>
-      <td>Back to the Future</td>
-      <td>1985</td>
-      <td>4.2</td>
-      <td><button type="button" class="btn btn-primary btn-sm">Yes</button></td>
-    </tr>
-  </tbody>
-</table>
-  </div> -->
   <!-- buttons for movie lists -->
   <div class="api-buttons container">
     <div class="row">
@@ -224,71 +185,52 @@ Create Login
         <!-- need to define data targets for these buttons -->
         <button id="all-movies" type="button" class="btn btn-primary btn-lg"
         data-toggle="modal" data-target="#XXXXXXX">View All Movies</button>
-        <button id="all-user-movies" type="button" class="btn btn-primary btn-lg"
-        data-toggle="modal" data-target="#YYYYYYY">View Your Movies</button>
+        <button id="ZZZZZZ" type="button" class="btn btn-primary btn-lg"
+        data-toggle="modal" data-target="#add-a-movie">Add A Movie</button>
       </div>
     </div>
   </div>
-  <!-- user movie table -->
-  <!-- <div>
-    <table class="table table-bordered table-responsive table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Year</th>
-      <th>Rating</th>
-      <th>Manage Movies</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>The Departed</td>
-      <td>2006</td>
-      <td>4.8</td>
-      <td>
-        <button type="button" class="btn btn-primary btn-sm">Delete</button>
-      </td>
-      <td>
-        <button type="button" class="btn btn-primary btn-sm">Update Rating</button>
-      </td>
-    </tr>
-    <tr>
-      <td>Silence of the Lambs</td>
-      <td>1991</td>
-      <td>5.0</td>
-      <td>
-        <button type="button" class="btn btn-primary btn-sm">Delete</button>
-      </td>
-      <td>
-        <button type="button" class="btn btn-primary btn-sm">Update Rating</button>
-      </td>
-    </tr>
-    <tr>
-      <td>Fight Club</td>
-      <td>1999</td>
-      <td>4.9</td>
-      <td>
-        <button type="button" class="btn btn-primary btn-sm">Delete</button>
-      </td>
-      <td>
-        <button type="button" class="btn btn-primary btn-sm">Update Rating</button>
-      </td>
-    </tr>
-    <tr>
-      <td>Back to the Future</td>
-      <td>1985</td>
-      <td>4.2</td>
-      <td>
-        <button type="button" class="btn btn-primary btn-sm">Delete</button>
-      </td>
-      <td>
-        <button type="button" class="btn btn-primary btn-sm">Update Rating</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-</div> -->
+<!-- add a movie modal -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="modal fade" id="add-a-movie" tabindex="-1" role="dialog"
+      aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Add A Movie</h4>
+            </div>
+            <div class="modal-body">
+              <form id="add-movie">
+                <div class="form-group">
+                  <label for="inputMovie">Movie Title</label>
+                  <input type="text" class="form-control" name="movie[name]"
+                  id="inputMovie" placeholder="Movie Title">
+                </div>
+                <div class="form-group">
+                  <label for="inputYear">Year</label>
+                  <input type="text"  class="form-control" name="movie[year]"
+                  id="inputYear" placeholder="Year">
+                </div>
+                <div class="form-group">
+                  <label for="inputRating">Rating</label>
+                  <input type="number" class="form-control" name="movie[rating]"
+                  id="inputRating" placeholder="5.0">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>
+            </div>
+            <div class="add-movie modal-footer">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- Buttons for logout and change password -->
 <footer class="fixed bottom">
 <div id="user-buttons" class="logout-buttons container">
