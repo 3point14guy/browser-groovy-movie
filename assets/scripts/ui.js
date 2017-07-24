@@ -2,6 +2,7 @@
 
 const store = require('./store')
 const displayMoviesTemplate = require('./templates/movie-listing.handlebars')
+const api = require('./api')
 
 const signUpSuccess = (data) => {
   console.log('sign UP success')
@@ -48,13 +49,30 @@ const logoutFailure = function (error) {
 }
 
 const allMoviesSuccess = function (data) {
+  store.movie = data.movie
   console.log('get all Movies success')
   $('.display-list').empty()
   const displayMoviesHTML = displayMoviesTemplate({ movies: data.movies })
   $('.display-list').append(displayMoviesHTML)
+  $('#delete-movie').on('click', deleteMovie)
 }
-const allMoviesFailure = function () {
-  console.log('get all Movies failure')
+const allMoviesFailure = function (error) {
+  console.log('get all Movies failure', error)
+}
+
+const deleteMovieSuccess = function () {
+  console.log('delete movie success')
+}
+const deleteMovieFailure = function (error) {
+  console.log('delete movie failure', error)
+}
+const deleteMovie = function (event) {
+  console.log('events deleteMovie')
+  const data = ($(this).parent().attr('data-id'))
+  console.log(data)
+  api.deleteAMovie(data)
+    .then(deleteMovieSuccess)
+    .catch(deleteMovieFailure)
 }
 
 module.exports = {
@@ -67,5 +85,7 @@ module.exports = {
   logoutSuccess,
   logoutFailure,
   allMoviesSuccess,
-  allMoviesFailure
+  allMoviesFailure,
+  deleteMovieSuccess,
+  deleteMovieFailure
 }

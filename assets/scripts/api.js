@@ -41,10 +41,21 @@ const logout = function () {
   })
 }
 
-const requestAllMovies = function () {
+const requestAllMovies = function (data) {
   console.log('api requestAllMovies')
   return $.ajax({
     url: config.apiOrigin + '/movies'
+  })
+}
+
+const deleteAMovie = function (data) {
+  console.log('api deleteAMovie')
+  return $.ajax({
+    url: config.apiOrigin + '/movies/' + data,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
@@ -53,5 +64,6 @@ module.exports = {
   signIn,
   changePassword,
   logout,
-  requestAllMovies
+  requestAllMovies,
+  deleteAMovie
 }

@@ -39,9 +39,13 @@ const onLogout = function (event) {
 
 const getAllMovies = function (event) {
   event.preventDefault()
+  $('#delete-movie').on('click', deleteMovie)
   console.log('events getAllMovies')
   api.requestAllMovies()
     .then(ui.allMoviesSuccess)
+    // .then(() => $('document').on('click', '#delete-movie', function () {
+    //   console.log('made it this far')
+    // }))
     .catch(ui.allMovieFailure)
 }
 
@@ -61,13 +65,13 @@ const getAllMovies = function (event) {
 //     .catch(ui.addMovieFailure)
 // }
 
-// const deleteMovie = function (event) {
-//   event.preventDefault()
-//   console.log('events deleteMovie')
-//   api.deleteAMovie()
-//     .then(ui.deleteMovieSuccess)
-//     .catch(ui.deleteMovieFailure)
-// }
+const deleteMovie = function (event) {
+  event.preventDefault()
+  console.log('events deleteMovie')
+  api.deleteAMovie()
+    .then(ui.deleteMovieSuccess)
+    .catch(ui.deleteMovieFailure)
+}
 
 // const updateRating = function (event) {
 //   event.preventDefault()
@@ -85,7 +89,7 @@ const addHandlers = () => {
   $('#all-movies').on('click', getAllMovies)
   // $('#all-user-movies').on('click', allUserMovies)
   // $('#add-movie').on('click', addMovie)
-  // $('.delete-movie').on('click', deleteMovie)
+  // $('#delete-movie').on('click', deleteMovie)
   // $('.update-rating').on('click', updateRating)
 }
 
