@@ -41,9 +41,52 @@ const logout = function () {
   })
 }
 
+const requestAllMovies = function (data) {
+  console.log('api requestAllMovies')
+  return $.ajax({
+    url: config.apiOrigin + '/movies'
+  })
+}
+
+const deleteAMovie = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/movies/' + data.id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const addAMovie = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/movies',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const updateARating = function (movie) {
+  const data = movie
+  return $.ajax({
+    url: config.apiOrigin + '/movies/' + movie.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  logout
+  logout,
+  requestAllMovies,
+  deleteAMovie,
+  addAMovie,
+  updateARating
 }

@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./store')
+const displayMoviesTemplate = require('./templates/movie-listing.handlebars')
 
 const signUpSuccess = (data) => {
   console.log('sign UP success')
@@ -9,10 +10,11 @@ const signUpSuccess = (data) => {
 const signInSuccess = (data) => {
   store.user = data.user
   console.log('sign IN success')
-  $('.logout-buttons').show(2900)
-  $('.login-message').text(data.user.email + ' You have successfully logged in.')
-  $('.login-buttons').hide(2600)
-  $('.instructions').text('Welcome to Groovy Movie! An app that lets you keep a list of your favorite movies and their ratings.')
+  $('.api-buttons').show(1700)
+  $('.logout-buttons').show(2100)
+  $('.instructions').text(data.user.email + ' You have successfully logged in.')
+  $('.login-buttons').hide(1700)
+  // $('.instructions').text('You are now logged in.')
 }
 const signInFailure = (error) => {
   console.log('sign IN failure')
@@ -35,13 +37,51 @@ const passwordChangeFailure = function (error) {
 const logoutSuccess = function () {
   console.log('log out success')
   $('.logout-message').text('You are now logged out.')
-  $('#user-buttons').hide(2600)
-  $('.login-buttons').show(2900)
+  $('#user-buttons').hide(1700)
+  $('.api-buttons').hide(1700)
+  $('.login-buttons').show(2300)
+  $('.display-list').hide()
 }
 
 const logoutFailure = function (error) {
   console.log('log out failure')
   $('.logout-message').text('Oops! Something went wrong.', error)
+}
+
+const allMoviesSuccess = function (data) {
+  store.movie = data.movie
+  console.log('get all Movies success')
+  $('.display-list').empty()
+  const displayMoviesHTML = displayMoviesTemplate({ movies: data.movies })
+  $('.display-list').append(displayMoviesHTML)
+  $('api-buttons').show()
+  $('.all-movie-show').show()
+}
+const allMoviesFailure = function (error) {
+  console.log('get all Movies failure', error)
+}
+
+const deleteMovieSuccess = function () {
+  console.log('delete movie success')
+}
+const deleteMovieFailure = function (error) {
+  console.log('delete movie failure', error)
+}
+
+const addMovieSuccess = function (event) {
+  console.log('add movie success')
+  $('.add-movie').text('Movie succssfully added!')
+  // would really love to run this here while maintaining separate files getAllMovies()
+}
+const addMovieFailure = function (error) {
+  console.log('add movie failure', error)
+}
+
+const updateRatingSuccess = function () {
+  console.log('upadted rating successfully')
+}
+const updateRatingFailure = function () {
+  console.log('failed to update rating')
 }
 
 module.exports = {
@@ -52,5 +92,13 @@ module.exports = {
   passwordChangeSuccess,
   passwordChangeFailure,
   logoutSuccess,
-  logoutFailure
+  logoutFailure,
+  allMoviesSuccess,
+  allMoviesFailure,
+  deleteMovieSuccess,
+  deleteMovieFailure,
+  addMovieSuccess,
+  addMovieFailure,
+  updateRatingSuccess,
+  updateRatingFailure
 }

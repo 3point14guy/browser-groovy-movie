@@ -1,26 +1,45 @@
 @import 'colors'; // moves variables over from colors.scss file
 
 body {
-  background: url('../img/theater.jpg') no-repeat;
   background-color: $light-blue;
-  // background-position: center;
+}
+
+.login-screen {
+  background: url('../img/theater.jpg') no-repeat;
+  background-size: cover;
+  height: 700px;
+  width: auto;
+}
+
+.all-movie-show {
+  display: none;
+}
+
+.display {
+  border: 1px solid $white;
+  height: 400px;
+  overflow: scroll;
+}
+
+.api-buttons {
+  display: none;
 }
 
 h1 {
-  color: $black;
   text-align: center;
 }
 
 p {
-  font-size: 55px;
-  text-align: center;
+  font-size: 20px;
+  // text-align: center;
 }
 
 .instructions {
-  display: none;
-  font-size: 30px;
-  margin: 30px auto;
+  color: $dark-red;
+  font-size: 25px;
+  margin: 2px auto 25px;
   text-align: center;
+  text-shadow: 2px 2px $black;
 }
 
 .logout-buttons {
@@ -28,13 +47,11 @@ p {
 }
 
 .title-hide {
-  display: none;
+  color: $dark-red;
+  font-size: 55px;
+  text-shadow: 3px 3px $black;
 }
 
 button {
   margin: 10px 30px;
-}
-
-.match {
-  background-color: $red;
 }
