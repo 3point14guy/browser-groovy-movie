@@ -2,7 +2,6 @@
 
 const store = require('./store')
 const displayMoviesTemplate = require('./templates/movie-listing.handlebars')
-const api = require('./api')
 
 const signUpSuccess = (data) => {
   console.log('sign UP success')
@@ -41,6 +40,7 @@ const logoutSuccess = function () {
   $('#user-buttons').hide(1700)
   $('.api-buttons').hide(1700)
   $('.login-buttons').show(2300)
+  $('.display-list').hide()
 }
 
 const logoutFailure = function (error) {
@@ -54,7 +54,8 @@ const allMoviesSuccess = function (data) {
   $('.display-list').empty()
   const displayMoviesHTML = displayMoviesTemplate({ movies: data.movies })
   $('.display-list').append(displayMoviesHTML)
-  $('#delete-movie').on('click', deleteMovie)
+  $('.login-screen').hide()
+  $('.all-movie-show').show()
 }
 const allMoviesFailure = function (error) {
   console.log('get all Movies failure', error)
@@ -66,21 +67,21 @@ const deleteMovieSuccess = function () {
 const deleteMovieFailure = function (error) {
   console.log('delete movie failure', error)
 }
-const deleteMovie = function (event) {
-  console.log('events deleteMovie')
-  const data = ($(this).parent().attr('data-id'))
-  console.log(data)
-  api.deleteAMovie(data)
-    .then(deleteMovieSuccess)
-    .catch(deleteMovieFailure)
-}
 
 const addMovieSuccess = function (event) {
   console.log('add movie success')
   $('.add-movie').text('Movie succssfully added!')
+  // would really love to run this here while maintaining separate files getAllMovies()
 }
 const addMovieFailure = function (error) {
   console.log('add movie failure', error)
+}
+
+const updateRatingSuccess = function () {
+  console.log('upadted rating successfully')
+}
+const updateRatingFailure = function () {
+  console.log('failed to update rating')
 }
 
 module.exports = {
@@ -97,5 +98,7 @@ module.exports = {
   deleteMovieSuccess,
   deleteMovieFailure,
   addMovieSuccess,
-  addMovieFailure
+  addMovieFailure,
+  updateRatingSuccess,
+  updateRatingFailure
 }

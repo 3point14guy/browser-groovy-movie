@@ -58,7 +58,7 @@ const deleteAMovie = function (data) {
     }
   })
 }
-// ************************************************************
+
 const addAMovie = function (data) {
   console.log('api addAMovie')
   console.log(data)
@@ -72,6 +72,17 @@ const addAMovie = function (data) {
   })
 }
 // ******************************************************************
+const updateARating = function (data) {
+  console.log('api updateAMovie')
+  return $.ajax({
+    url: config.apiOrigin + '/movies/' + data,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
 module.exports = {
   signUp,
   signIn,
@@ -79,5 +90,6 @@ module.exports = {
   logout,
   requestAllMovies,
   deleteAMovie,
-  addAMovie
+  addAMovie,
+  updateARating
 }

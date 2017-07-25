@@ -1,28 +1,26 @@
 {{#each movies as |movie|}}
 
-  <!-- {{> partial}} -->
-  <!--Don't uncomment yet -->
+
   <div>
     <table class="table table-bordered table-responsive table-hover">
   <thead>
     <tr>
-      <th class="col-md-4">Name</th>
-      <th class="col-md-1">Year</th>
-      <th class="col-md-1">Rating</th>
-      <th class="col-md-1"></th>
-      <th class="col-md-1"></th>
+      <th class="col-xs-1">Id</th>
+      <th class="col-xs-4">Name</th>
+      <th class="col-xs-1">Year</th>
+      <th class="col-xs-1">Rating</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td>{{movie.id}}</td>
       <td>{{movie.name}}</td>
       <td>{{movie.year}}</td>
       <td>{{movie.rating}} Stars</td>
-      <td data-id="{{movie.id}}"><button id="delete-movie" type="button" class="btn btn-danger btn-sm">Delete Movie</button></td>
-      <td data-id="{{movie.id}}"><button id="update-rating" type="button" class="btn btn-warning btn-sm">Update Rating</button></td>
     </tr>
   </tbody>
   </table>
+
   </div>
 
 {{/each}}

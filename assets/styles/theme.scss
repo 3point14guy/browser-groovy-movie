@@ -6,7 +6,18 @@ body {
 
 .login-screen {
   background: url('../img/theater.jpg') no-repeat;
-  height: 100%;
+  background-size: cover;
+  height: 700px;
+  width: auto;
+}
+
+.all-movie-show {
+  display: none;
+}
+
+.display {
+  height: 400px;
+  overflow: scroll;
 }
 
 .api-buttons {
@@ -21,7 +32,6 @@ p {
   font-size: 20px;
   // text-align: center;
 }
-
 
 .instructions {
   color: $dark-red;

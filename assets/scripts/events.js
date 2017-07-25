@@ -76,13 +76,14 @@ const deleteMovie = function (event) {
     .catch(ui.deleteMovieFailure)
 }
 
-// const updateRating = function (event) {
-//   event.preventDefault()
-//   console.log('events updateRating')
-//   api.updateARating()
-//     .then(ui.updateRatingSuccess)
-//     .catch(ui.updateRatingFailure)
-// }
+const updateRating = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  console.log('events updateRating')
+  api.updateARating(data)
+    .then(ui.updateRatingSuccess)
+    .catch(ui.updateRatingFailure)
+}
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
@@ -92,8 +93,9 @@ const addHandlers = () => {
   $('#all-movies').on('click', getAllMovies)
   // $('#all-user-movies').on('click', allUserMovies)
   $('#add-movie').on('submit', addMovie)
-  // $('#delete-movie').on('click', deleteMovie)
-  // $('.update-rating').on('click', updateRating)
+  $('.update-rating').on('click', updateRating)
+  $('#delete-movie').on('click', deleteMovie)
+  $('#update-rating').on('click', updateRating)
 }
 
 module.exports = {
