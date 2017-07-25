@@ -12,9 +12,9 @@ const signInSuccess = (data) => {
   console.log('sign IN success')
   $('.api-buttons').show(1700)
   $('.logout-buttons').show(2100)
-  $('.login-message').text(data.user.email + ' You have successfully logged in.')
+  $('.instructions').text(data.user.email + ' You have successfully logged in.')
   $('.login-buttons').hide(1700)
-  $('.instructions').text('You are now logged in.')
+  // $('.instructions').text('You are now logged in.')
 }
 const signInFailure = (error) => {
   console.log('sign IN failure')
@@ -54,7 +54,7 @@ const allMoviesSuccess = function (data) {
   $('.display-list').empty()
   const displayMoviesHTML = displayMoviesTemplate({ movies: data.movies })
   $('.display-list').append(displayMoviesHTML)
-  $('.login-screen').hide()
+  $('api-buttons').show()
   $('.all-movie-show').show()
 }
 const allMoviesFailure = function (error) {

@@ -49,9 +49,8 @@ const requestAllMovies = function (data) {
 }
 
 const deleteAMovie = function (data) {
-  console.log('api deleteAMovie')
   return $.ajax({
-    url: config.apiOrigin + '/movies/' + data,
+    url: config.apiOrigin + '/movies/' + data.id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -60,8 +59,6 @@ const deleteAMovie = function (data) {
 }
 
 const addAMovie = function (data) {
-  console.log('api addAMovie')
-  console.log(data)
   return $.ajax({
     url: config.apiOrigin + '/movies',
     method: 'POST',
@@ -71,11 +68,11 @@ const addAMovie = function (data) {
     data
   })
 }
-// ******************************************************************
-const updateARating = function (data) {
-  console.log('api updateAMovie')
+
+const updateARating = function (movie) {
+  const data = movie
   return $.ajax({
-    url: config.apiOrigin + '/movies/' + data,
+    url: config.apiOrigin + '/movies/' + movie.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token

@@ -16,6 +16,7 @@ body {
 }
 
 .display {
+  border: 1px solid $white;
   height: 400px;
   overflow: scroll;
 }

@@ -39,13 +39,9 @@ const onLogout = function (event) {
 
 const getAllMovies = function (event) {
   event.preventDefault()
-  $('#delete-movie').on('click', deleteMovie)
   console.log('events getAllMovies')
   api.requestAllMovies()
     .then(ui.allMoviesSuccess)
-    // .then(() => $('document').on('click', '#delete-movie', function () {
-    //   console.log('made it this far')
-    // }))
     .catch(ui.allMovieFailure)
 }
 
@@ -70,15 +66,16 @@ const addMovie = function (event) {
 
 const deleteMovie = function (event) {
   event.preventDefault()
+  const data = getFormFields(this)
   console.log('events deleteMovie')
-  api.deleteAMovie()
+  api.deleteAMovie(data)
     .then(ui.deleteMovieSuccess)
     .catch(ui.deleteMovieFailure)
 }
 
 const updateRating = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
+  const data = getFormFields(this)
   console.log('events updateRating')
   api.updateARating(data)
     .then(ui.updateRatingSuccess)
@@ -93,9 +90,8 @@ const addHandlers = () => {
   $('#all-movies').on('click', getAllMovies)
   // $('#all-user-movies').on('click', allUserMovies)
   $('#add-movie').on('submit', addMovie)
-  $('.update-rating').on('click', updateRating)
-  $('#delete-movie').on('click', deleteMovie)
-  $('#update-rating').on('click', updateRating)
+  $('#delete-movie').on('submit', deleteMovie)
+  $('#update-a-rating').on('submit', updateRating)
 }
 
 module.exports = {
