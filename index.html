@@ -14,26 +14,18 @@
 </head>
 
 <body class="show container-fluid">
-<div class="login-screen initial">
-<div class="conatiner">
-  <div class="conatiner">
+<div class="login-screen">
+  <div class="title-top conatiner">
     <br/>
-    <h1 class="title-hide">Welcome to Groovie Movie!</h1>
+    <h1>Welcome to Groovie Movie!</h1>
     <div class="row">
       <div class="col-xs-12 box">
         <p class="instructions">An app that lets you keep a list of your<br/> favorite movies and their ratings.</p>
     </div>
   </div>
-  <br/>
-
-  <!-- game logo for display prior to login-->
-  <div class="center-block container">
-
-  </div>
 </div>
   <br/>
-  <!-- start of code for modals. names are used with getFormFields to present
-inputs in the correct format for the api-->
+
 <div class="login-buttons container">
   <div class="row">
     <br/>
@@ -51,24 +43,15 @@ Create Login
 </div>
 </div>
 <!-- buttons for movie lists -->
-<div class="api-buttons container">
-  <div class="row">
-    <div class="col-sm-12">
-      <!-- need to define data targets for these buttons -->
-      <button id="all-movies" type="button" class="btn btn-outline-primary btn-lg"
-      data-toggle="modal" data-target="#XXXXXXX">View All Movies</button>
-    </div>
-    <div class="all-movie-show">
-      <div class="row">
-        <div class="col-sm-12">
-      <button id="ZZZZZZ" type="button" class="btn btn-outline-primary btn-lg" data-toggle="modal" data-target="#add-a-movie">Add A Movie</button>
+<div class="api-buttons btn-group container">
+  <div class="row col-sm-12 col-sm-offset-4">
+    <button id="all-movies" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#XXXXXXX">View Movies</button>
+    <button type="button" class="btn btn-outline-primary btn-lg" data-toggle="modal" data-target="#add-a-movie">Add A Movie</button>
+    <div class="row col-sm-12">
+      <button id="update-rating" type="button" class="btn btn-outline-warning btn-lg" data-toggle="modal" data-target="#update-a-movie">Update Movie</button>
       <button id="delete-my-movie" type="button" class="btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#delete-a-movie">Delete Movie</button>
-      <button id="update-rating" type="button" class="btn btn-outline-warning btn-lg" data-toggle="modal" data-target="#update-a-movie">Update Rating</button>
     </div>
   </div>
-    </div>
-  </div>
-</div>
 </div>
 <!-- Modal for login -->
         <div class="modal fade" id="submit-login" tabindex="-1" role="dialog"
@@ -200,6 +183,7 @@ Create Login
   </div>
   <div class="display">
     <p class="display-list">
+
     </p>
 
   </div>

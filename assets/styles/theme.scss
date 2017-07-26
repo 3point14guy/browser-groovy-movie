@@ -7,7 +7,7 @@ body {
 .login-screen {
   background: url('../img/theater.jpg') no-repeat;
   background-size: cover;
-  height: 700px;
+  height: 675px;
   width: auto;
 }
 
@@ -17,6 +17,7 @@ body {
 
 .display {
   border: 1px solid $white;
+  display: none;
   height: 400px;
   overflow: scroll;
 }
@@ -26,13 +27,14 @@ body {
 }
 
 h1 {
+  font-size: 55px;
   text-align: center;
 }
 
-p {
-  font-size: 20px;
-  // text-align: center;
-}
+// p {
+//   font-size: 20px;
+//   // text-align: center;
+// }
 
 .instructions {
   color: $dark-red;
@@ -46,9 +48,8 @@ p {
   display: none;
 }
 
-.title-hide {
+.title-top {
   color: $dark-red;
-  font-size: 55px;
   text-shadow: 3px 3px $black;
 }
 

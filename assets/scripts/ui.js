@@ -8,10 +8,14 @@ const signUpSuccess = (data) => {
 }
 const signInSuccess = (data) => {
   store.user = data.user
+  $('.title-top').show()
+  $('.display').show()
+  $('.login-screen').hide()
   $('.api-buttons').show(1700)
   $('.logout-buttons').show(2100)
   $('.instructions').text(data.user.email + ' You have successfully logged in.')
   $('.login-buttons').hide(1700)
+  $('.sign-up').text(data.uesr.email + ' is now signed in.')
 }
 const signInFailure = (error) => {
   $('.login-message').text('Login failure. ', error)
@@ -44,6 +48,7 @@ const allMoviesSuccess = function (data) {
   store.movie = data.movie
   $('.display-list').empty()
   const displayMoviesHTML = displayMoviesTemplate({ movies: data.movies })
+  $('.display').show()
   $('.display-list').append(displayMoviesHTML)
   $('api-buttons').show()
   $('.all-movie-show').show()
