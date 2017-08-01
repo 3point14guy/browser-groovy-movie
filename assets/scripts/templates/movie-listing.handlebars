@@ -1,27 +1,31 @@
+<table class="table table-bordered table-responsive table-hover">
+  <thead>
+  <tr>
+    <th class="col-xs-1">Id</th>
+    <th class="col-xs-9">Name</th>
+    <th class="col-xs-1">Year</th>
+    <th class="col-xs-1">Rating</th>
+  </tr>
+</thead>
+</table>
+
 {{#each movies as |movie|}}
 
 
-  <div>
-    <table class="table table-bordered table-responsive table-hover">
-  <thead>
-    <tr>
-      <th class="col-xs-1">Id</th>
-      <th class="col-xs-4">Name</th>
-      <th class="col-xs-1">Year</th>
-      <th class="col-xs-1">Rating</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>{{movie.id}}</td>
-      <td>{{movie.name}}</td>
-      <td>{{movie.year}}</td>
-      <td>{{movie.rating}} Stars</td>
-    </tr>
-  </tbody>
-  </table>
 
-  </div>
+<table class="table table-bordered table-responsive table-hover">
+<!-- <tbody> -->
+    <tr>
+      <td class="col-xs-1">{{movie.id}}</td>
+      <td "col-xs-9">{{movie.name}}</td>
+      <td class="col-xs-1">{{movie.year}}</td>
+      <td class="col-xs-1">{{movie.rating}} Stars</td>
+    </tr>
+<!-- </tbody> -->
+</table>
+
+
+
 
 {{/each}}
 <!-- <div>
