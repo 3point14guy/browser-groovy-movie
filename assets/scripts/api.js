@@ -39,7 +39,11 @@ const logout = function () {
 
 const requestAllMovies = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/movies'
+    url: config.apiOrigin + '/movies',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
