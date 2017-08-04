@@ -31,17 +31,16 @@ const passwordChangeSuccess = function () {
   $('#submit-change-password').modal('hide')
 }
 const passwordChangeFailure = function (error) {
-  $('.change-pswrd-message').text('Password change failed', error).fadeIn('fast').delay(2500).fadeOut('slow')
+  $('.change-pswrd-message').text('Password change failed', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
 const logoutSuccess = function () {
-  $('.all-movie-show').hide()
   $('.api-buttons').hide()
   $('.form-clear').trigger('reset')
   $('.display').hide()
   $('.display-list').hide()
   $('.instructions').text('Please login to begin')
-  $('.login-buttons').show(1200)
+  $('.login-buttons').show(900)
   $('.login-screen').show()
   $('#log-out').modal('hide')
   $('.show-buttons').hide()
@@ -49,48 +48,48 @@ const logoutSuccess = function () {
 }
 
 const logoutFailure = function (error) {
-  $('.logout-message').text('Oops! Something went wrong.', error).fadeIn('fast').delay(2500).fadeOut('slow')
+  $('.logout-message').text('Oops! Something went wrong.', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
 const allMoviesSuccess = function (data) {
   store.movie = data.movie
   const displayMoviesHTML = displayMoviesTemplate({ movies: data.movies })
+  $('.display-list').show()
   $('.display-list').empty()
   $('.display').show()
   $('.show-buttons').show(300)
-  $('.display-list').append(displayMoviesHTML)
+  $('.display-list').prepend(displayMoviesHTML)
   $('api-buttons').show()
-  $('.all-movie-show').show()
 }
+
 const allMoviesFailure = function (error) {
-  $('.instructions').text('Oops, something went wrong.', error).fadeIn('fast').delay(2500).fadeOut('slow')
+  $('.instructions').text('Oops, something went wrong.', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
 const deleteMovieSuccess = function () {
-  $('.form-clear').trigger('reset')
-  $('#delete-a-movie').modal('hide')
+  // $('.form-clear').trigger('reset')
+  // $('#delete-a-movie').modal('hide')
 }
 const deleteMovieFailure = function (error) {
-  $('.delete-movie').text('Oops, something went wrong.', error).fadeIn('fast').delay(2500).fadeOut('slow')
+  $('.delete-movie').text('Oops, something went wrong.', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
 const addMovieSuccess = function () {
-  $('.form-clear').trigger('reset')
-  $('#add-a-movie').modal('hide')
+  // $('.form-clear').trigger('reset')
+  // $('#add-a-movie').modal('hide')
 
   // would really love to run this here while maintaining separate files getAllMovies()
 }
 const addMovieFailure = function (error) {
-  $('.add-movie').text('Oops, something went wrong.', error).fadeIn('fast').delay(2500).fadeOut('slow')
+  $('.add-movie').text('Oops, something went wrong.', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
 const updateRatingSuccess = function (data) {
-  $('.form-clear').trigger('reset')
-  // $('.update-a-rating').text('Movie succssfully Updated!').fadeIn('fast').delay(3000).fadeOut('slow')
-  $('#update-a-movie').modal('hide')
+  // $('.form-clear').trigger('reset')
+  // $('#update-a-movie').modal('hide')
 }
 const updateRatingFailure = function (error) {
-  $('.update-a-rating').text('Oops, something went wrong.', error).fadeIn('fast').delay(2500).fadeOut('slow')
+  $('.update-a-rating').text('Oops, something went wrong.', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
 module.exports = {
