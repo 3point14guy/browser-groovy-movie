@@ -5,10 +5,10 @@ body {
 }
 
 .login-screen {
-  background: url('../img/theater.jpg') no-repeat;
-  background-size: cover;
-  height: 675px;
-  width: auto;
+  // background: url('../img/theater.jpg') no-repeat;
+  // background-size: cover;
+  // height: 675px;
+  // width: auto;
 }
 
 .footer {
@@ -19,14 +19,14 @@ body {
   width: 100%;
 }
 
-.all-movie-show {
+.display {
   display: none;
 }
 
-.display {
+.display-list {
   border: 1px solid $white;
   display: none;
-  height: 400px;
+  height: 200px;
   overflow: scroll;
 }
 
@@ -43,11 +43,6 @@ h1 {
   text-align: center;
 }
 
-// p {
-//   font-size: 20px;
-//   // text-align: center;
-// }
-
 .instructions {
   color: $dark-red;
   font-size: 25px;
@@ -60,6 +55,9 @@ h1 {
   display: none;
 }
 
+.signature {
+  text-align: center;
+}
 .title-top {
   color: $dark-red;
   text-shadow: 3px 3px $black;

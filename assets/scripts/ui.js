@@ -12,26 +12,28 @@ const signInSuccess = (data) => {
   $('.api-buttons').show(1700)
   $('.display').show()
   $('.form-clear').trigger('reset')
-  $('.instructions').text(data.user.email + ' You have successfully logged in.')
+  $('.instructions').show()
+  $('.instructions').text(data.user.email + ' You have successfully logged in. Select "View Movies"')
   $('.login-buttons').hide(1700)
-  $('.login-screen').hide()
+  // $('.login-screen').hide()
   $('.logout-buttons').show(2100)
   $('#submit-login').modal('hide')
   $('.title-top').show()
 }
 const signInFailure = (error) => {
-  $('.login-message').text('Login failure. ', error).fadeIn('fast').delay(2500).fadeOut('slow').modal('hide')
+  $('.login-message').text('Login failure. ', error).fadeIn('fast').delay(2000).fadeOut('slow').modal('hide')
 }
 const signUpFailure = (error) => {
-  $('.sign-up-message').text('There was an error creating the account ', error).fadeIn('fast').delay(2500).fadeOut('slow')
+  $('.sign-up-message').text('There was an error creating the account. ', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
 const passwordChangeSuccess = function () {
   $('.form-clear').trigger('reset')
   $('#submit-change-password').modal('hide')
+  $('.instructions').text('Password changed successfully!')
 }
 const passwordChangeFailure = function (error) {
-  $('.change-pswrd-message').text('Password change failed', error).fadeIn('fast').delay(2000).fadeOut('slow')
+  $('.change-pswrd-message').text('Password change failed.', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
 const logoutSuccess = function () {
@@ -39,7 +41,7 @@ const logoutSuccess = function () {
   $('.form-clear').trigger('reset')
   $('.display').hide()
   $('.display-list').hide()
-  $('.instructions').text('Please login to begin')
+  $('.instructions').text('Please login to begin.')
   $('.login-buttons').show(900)
   $('.login-screen').show()
   $('#log-out').modal('hide')
@@ -57,6 +59,7 @@ const allMoviesSuccess = function (data) {
   $('.display-list').show()
   $('.display-list').empty()
   $('.display').show()
+  $('.instructions').text('This is your current list.')
   $('.show-buttons').show(300)
   $('.display-list').prepend(displayMoviesHTML)
   $('api-buttons').show()
@@ -67,6 +70,7 @@ const allMoviesFailure = function (error) {
 }
 
 const deleteMovieSuccess = function () {
+  $('.instructions').text('Movie successfully deleted.')
   // $('.form-clear').trigger('reset')
   // $('#delete-a-movie').modal('hide')
 }
@@ -75,6 +79,7 @@ const deleteMovieFailure = function (error) {
 }
 
 const addMovieSuccess = function () {
+  $('.instructions').text('Movie successfully added.')
   // $('.form-clear').trigger('reset')
   // $('#add-a-movie').modal('hide')
 
@@ -85,6 +90,7 @@ const addMovieFailure = function (error) {
 }
 
 const updateRatingSuccess = function (data) {
+  $('.instructions').text('Your movie update was successful.')
   // $('.form-clear').trigger('reset')
   // $('#update-a-movie').modal('hide')
 }

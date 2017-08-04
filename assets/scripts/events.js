@@ -42,6 +42,7 @@ const addMovie = function (event) {
       $('#add-a-movie').modal('hide')
       getAllMovies()
     })
+    .then(ui.addMovieSuccess)
     .catch(ui.addMovieFailure)
 }
 
@@ -54,6 +55,7 @@ const deleteMovie = function (event) {
       $('#delete-a-movie').modal('hide')
       getAllMovies()
     })
+    .then(ui.deleteMovieSuccess)
     .catch(ui.deleteMovieFailure)
 }
 
@@ -66,6 +68,7 @@ const updateRating = function (event) {
       $('#update-a-movie').modal('hide')
       getAllMovies()
     })
+    .then(ui.updateRatingSuccess)
     .catch(ui.updateRatingFailure)
 }
 
