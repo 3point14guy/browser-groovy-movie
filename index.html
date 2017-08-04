@@ -45,11 +45,11 @@ Create Login
 <!-- buttons for movie lists -->
 <div class="api-buttons btn-group container">
   <div class="row col-sm-12 col-sm-offset-4">
-    <button id="all-movies" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#XXXXXXX">View Movies</button>
-    <button type="button" class="btn btn-outline-primary btn-lg" data-toggle="modal" data-target="#add-a-movie">Add A Movie</button>
+    <button id="all-movies" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#view-a-movie">View Movies</button>
+    <button type="button" class="show-buttons btn btn-outline-primary btn-lg" data-toggle="modal" data-target="#add-a-movie">Add A Movie</button>
     <div class="row col-sm-12">
-      <button id="update-rating" type="button" class="btn btn-outline-warning btn-lg" data-toggle="modal" data-target="#update-a-movie">Update Movie</button>
-      <button id="delete-my-movie" type="button" class="btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#delete-a-movie">Delete Movie</button>
+      <button id="update-rating" type="button" class="show-buttons btn btn-outline-warning btn-lg" data-toggle="modal" data-target="#update-a-movie">Update Movie</button>
+      <button id="delete-my-movie" type="button" class="show-buttons btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#delete-a-movie">Delete Movie</button>
     </div>
   </div>
 </div>
@@ -64,7 +64,7 @@ Create Login
                 <h4 class="modal-title" id="myModalLabel">User Login</h4>
               </div>
               <div class="modal-body">
-                <form id="sign-in">
+                <form class="form-clear" id="sign-in">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
                     <input type="email" name="credentials[email]" class="form-control"
@@ -103,7 +103,7 @@ Create Login
                 <h4 class="modal-title" id="myModalLabel">Create Login</h4>
               </div>
               <div class="modal-body">
-                <form id="sign-up">
+                <form class="form-clear" id="sign-up">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
                     <input name="credentials[email]" type="email" class="form-control"
@@ -146,7 +146,7 @@ Create Login
           <button type="submit" class="btn btn-default">Yes, log out</button>
         </form>
       </div>
-      <div class="logout-message modal-footer">
+      <div class="logout-message modal-footer" >
       </div>
     </div>
     </div>
@@ -162,7 +162,7 @@ Create Login
           <h4 class="modal-title" id="myModalLabel">Password Reset</h4>
         </div>
         <div class="modal-body">
-          <form id="change-password">
+          <form class="form-clear" id="change-password">
             <div class="form-group">
               <label for="currentPassword">Current Password</label>
               <input name="passwords[old]" type="password" class="form-control"
@@ -182,6 +182,16 @@ Create Login
     </div>
   </div>
   <div class="display">
+    <table class="table table-bordered table-responsive table-hover">
+      <thead>
+      <tr>
+        <th class="col-xs-1">Id</th>
+        <th class="col-xs-9">Name</th>
+        <th class="col-xs-1">Year</th>
+        <th class="col-xs-1">Rating</th>
+      </tr>
+    </thead>
+    </table>
     <p class="display-list">
 
     </p>
@@ -202,7 +212,7 @@ Create Login
               <h4 class="modal-title" id="myModalLabel">Add A Movie</h4>
             </div>
             <div class="modal-body">
-              <form id="add-movie">
+              <form class="form-clear" id="add-movie">
                 <div class="form-group">
                   <label for="inputMovie">Movie Title</label>
                   <input type="text" class="form-control" name="movie[name]"
@@ -215,7 +225,7 @@ Create Login
                 </div>
                 <div class="form-group">
                   <label for="inputRating">Rating</label>
-                  <input type="number" class="form-control" name="movie[rating]"
+                  <input type="number" min=0 max=5 step=0.1 class="form-control" name="movie[rating]"
                   id="inputRating" placeholder="5.0">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
@@ -243,7 +253,7 @@ Create Login
               <h4 class="modal-title" id="myModalLabel">Delete A Movie</h4>
             </div>
             <div class="modal-body">
-              <form id="delete-movie">
+              <form class="form-clear" id="delete-movie">
                 <div class="form-group">
                   <label for="inputMovieId">Movie Id</label>
                   <input type="number" class="form-control" name="id"
@@ -275,7 +285,7 @@ Create Login
               <h4 class="modal-title" id="myModalLabel">Update A Movie</h4>
             </div>
             <div class="modal-body">
-              <form id="update-a-rating">
+              <form class="form-clear" id="update-a-rating">
                 <div class="form-group">
                   <label for="inputMovieId">Movie Id</label>
                   <input type="number" class="form-control" name="id"
@@ -288,12 +298,12 @@ Create Login
                 </div>
                 <div class="form-group">
                   <label for="inputYear">Year</label>
-                  <input type="text"  class="form-control" name="movie[year]"
+                  <input type="number" class="form-control" name="movie[year]"
                   id="inputYear" placeholder="Year">
                 </div>
                 <div class="form-group">
                   <label for="inputRating">Rating</label>
-                  <input type="number" class="form-control" name="movie[rating]"
+                  <input type="number" min=0 max=5 step=0.1 class="form-control" name="movie[rating]"
                   id="inputRating" placeholder="5.0">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
@@ -308,7 +318,7 @@ Create Login
   </div>
 </div>
 <!-- Buttons for logout and change password -->
-<footer class="fixed bottom">
+<footer class="footer">
 <div id="user-buttons" class="logout-buttons container">
   <div class="row">
     <div class="col-sm-12 col-sm-offset-4">
@@ -319,6 +329,7 @@ Create Login
     </div>
   </div>
 </div>
+<p class="signature">An app by Nicholas Piaskoski</p>
 </footer>
 </body>
 </html>

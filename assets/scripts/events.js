@@ -33,17 +33,15 @@ const onLogout = function (event) {
     .catch(ui.logoutFailure)
 }
 
-const getAllMovies = function (event) {
-  event.preventDefault()
-  api.requestAllMovies()
-    .then(ui.allMoviesSuccess)
-    .catch(ui.allMovieFailure)
-}
-
 const addMovie = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.addAMovie(data)
+    .then(function (data) {
+      $('.form-clear').trigger('reset')
+      $('#add-a-movie').modal('hide')
+      getAllMovies()
+    })
     .then(ui.addMovieSuccess)
     .catch(ui.addMovieFailure)
 }
@@ -52,6 +50,11 @@ const deleteMovie = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   api.deleteAMovie(data)
+    .then(function (data) {
+      $('.form-clear').trigger('reset')
+      $('#delete-a-movie').modal('hide')
+      getAllMovies()
+    })
     .then(ui.deleteMovieSuccess)
     .catch(ui.deleteMovieFailure)
 }
@@ -60,8 +63,20 @@ const updateRating = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   api.updateARating(data)
+    .then(function (data) {
+      $('.form-clear').trigger('reset')
+      $('#update-a-movie').modal('hide')
+      getAllMovies()
+    })
     .then(ui.updateRatingSuccess)
     .catch(ui.updateRatingFailure)
+}
+
+const getAllMovies = function () {
+  // event.preventDefault()
+  api.requestAllMovies()
+    .then(ui.allMoviesSuccess)
+    .catch(ui.allMovieFailure)
 }
 
 const addHandlers = () => {

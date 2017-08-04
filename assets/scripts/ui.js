@@ -4,79 +4,98 @@ const store = require('./store')
 const displayMoviesTemplate = require('./templates/movie-listing.handlebars')
 
 const signUpSuccess = (data) => {
-  $('.sign-up-message').text(data.user.email + ' now has an account. Please login.')
+  $('.form-clear').trigger('reset')
+  $('#submit-register').modal('hide')
 }
 const signInSuccess = (data) => {
   store.user = data.user
-  $('.title-top').show()
-  $('.display').show()
-  $('.login-screen').hide()
   $('.api-buttons').show(1700)
-  $('.logout-buttons').show(2100)
-  $('.instructions').text(data.user.email + ' You have successfully logged in.')
+  $('.display').show()
+  $('.form-clear').trigger('reset')
+  $('.instructions').show()
+  $('.instructions').text(data.user.email + ' You have successfully logged in. Select "View Movies"')
   $('.login-buttons').hide(1700)
-  $('.sign-up').text(data.uesr.email + ' is now signed in.')
+  // $('.login-screen').hide()
+  $('.logout-buttons').show(2100)
+  $('#submit-login').modal('hide')
+  $('.title-top').show()
 }
 const signInFailure = (error) => {
-  $('.login-message').text('Login failure. ', error)
+  $('.login-message').text('Login failure. ', error).fadeIn('fast').delay(2000).fadeOut('slow').modal('hide')
 }
 const signUpFailure = (error) => {
-  $('.sign-up-message').text('There was an error creating the account ', error)
+  $('.sign-up-message').text('There was an error creating the account. ', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
 const passwordChangeSuccess = function () {
-  $('.change-pswrd-message').text('Password changed!')
+  $('.form-clear').trigger('reset')
+  $('#submit-change-password').modal('hide')
+  $('.instructions').text('Password changed successfully!')
 }
 const passwordChangeFailure = function (error) {
-  $('.change-pswrd-message').text('Password change failed', error)
+  $('.change-pswrd-message').text('Password change failed.', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
 const logoutSuccess = function () {
-  $('.logout-message').text('You are now logged out.')
-  $('#user-buttons').hide(1700)
-  $('.api-buttons').hide(1700)
-  $('.login-buttons').show(2300)
+  $('.api-buttons').hide()
+  $('.form-clear').trigger('reset')
+  $('.display').hide()
   $('.display-list').hide()
-  $('.instructions').text('Please login to begin')
+  $('.instructions').text('Please login to begin.')
+  $('.login-buttons').show(900)
+  $('.login-screen').show()
+  $('#log-out').modal('hide')
+  $('.show-buttons').hide()
+  $('#user-buttons').hide()
 }
 
 const logoutFailure = function (error) {
-  $('.logout-message').text('Oops! Something went wrong.', error)
+  $('.logout-message').text('Oops! Something went wrong.', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
 const allMoviesSuccess = function (data) {
   store.movie = data.movie
-  $('.display-list').empty()
   const displayMoviesHTML = displayMoviesTemplate({ movies: data.movies })
+  $('.display-list').show()
+  $('.display-list').empty()
   $('.display').show()
-  $('.display-list').append(displayMoviesHTML)
+  $('.instructions').text('This is your current list.')
+  $('.show-buttons').show(300)
+  $('.display-list').prepend(displayMoviesHTML)
   $('api-buttons').show()
-  $('.all-movie-show').show()
 }
+
 const allMoviesFailure = function (error) {
-  $('.instructions').text('Oops, something went wrong.', error)
+  $('.instructions').text('Oops, something went wrong.', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
 const deleteMovieSuccess = function () {
-  $('.delete-movie').text('Movie deleted succssfully!')
+  $('.instructions').text('Movie successfully deleted.')
+  // $('.form-clear').trigger('reset')
+  // $('#delete-a-movie').modal('hide')
 }
 const deleteMovieFailure = function (error) {
-  $('.delete-movie').text('Oops, something went wrong.', error)
+  $('.delete-movie').text('Oops, something went wrong.', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
-const addMovieSuccess = function (event) {
-  $('.add-movie').text('Movie succssfully added!')
+const addMovieSuccess = function () {
+  $('.instructions').text('Movie successfully added.')
+  // $('.form-clear').trigger('reset')
+  // $('#add-a-movie').modal('hide')
+
   // would really love to run this here while maintaining separate files getAllMovies()
 }
 const addMovieFailure = function (error) {
-  $('.add-movie').text('Oops, something went wrong.', error)
+  $('.add-movie').text('Oops, something went wrong.', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
-const updateRatingSuccess = function () {
-  $('.update-a-rating').text('Movie succssfully Updated!')
+const updateRatingSuccess = function (data) {
+  $('.instructions').text('Your movie update was successful.')
+  // $('.form-clear').trigger('reset')
+  // $('#update-a-movie').modal('hide')
 }
 const updateRatingFailure = function (error) {
-  $('.update-a-rating').text('Oops, something went wrong.', error)
+  $('.update-a-rating').text('Oops, something went wrong.', error).fadeIn('fast').delay(2000).fadeOut('slow')
 }
 
 module.exports = {
