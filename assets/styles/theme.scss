@@ -51,6 +51,24 @@ h1 {
   text-shadow: 2px 2px $black;
 }
 
+.added {
+  display: none;
+  font-size: 25px;
+  text-align: center;
+}
+
+.updated {
+  display: none;
+  font-size: 25px;
+  text-align: center;
+}
+
+.deleted {
+  display: none;
+  font-size: 25px;
+  text-align: center;
+}
+
 .logout-buttons {
   display: none;
 }
@@ -58,6 +76,7 @@ h1 {
 .signature {
   text-align: center;
 }
+
 .title-top {
   color: $dark-red;
   text-shadow: 3px 3px $black;

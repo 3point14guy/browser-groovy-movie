@@ -47,6 +47,9 @@ const logoutSuccess = function () {
   $('#log-out').modal('hide')
   $('.show-buttons').hide()
   $('#user-buttons').hide()
+  $('.added').hide()
+  $('.updated').hide()
+  $('.deleted').hide()
 }
 
 const logoutFailure = function (error) {

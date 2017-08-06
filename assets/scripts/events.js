@@ -40,6 +40,9 @@ const addMovie = function (event) {
     .then(function (data) {
       $('.form-clear').trigger('reset')
       $('#add-a-movie').modal('hide')
+      $('.added').show()
+      $('.updated').hide()
+      $('.deleted').hide()
       getAllMovies()
     })
     .then(ui.addMovieSuccess)
@@ -53,6 +56,9 @@ const deleteMovie = function (event) {
     .then(function (data) {
       $('.form-clear').trigger('reset')
       $('#delete-a-movie').modal('hide')
+      $('.added').hide()
+      $('.updated').hide()
+      $('.deleted').show()
       getAllMovies()
     })
     .then(ui.deleteMovieSuccess)
@@ -66,6 +72,9 @@ const updateRating = function (event) {
     .then(function (data) {
       $('.form-clear').trigger('reset')
       $('#update-a-movie').modal('hide')
+      $('.updated').show()
+      $('.added').hide()
+      $('.deleted').hide()
       getAllMovies()
     })
     .then(ui.updateRatingSuccess)
