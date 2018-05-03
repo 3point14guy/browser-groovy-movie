@@ -9,13 +9,14 @@ const signUpSuccess = (data) => {
 }
 const signInSuccess = (data) => {
   store.user = data.user
+  $('.back-img').show()
   $('.api-buttons').show(1700)
   $('.display').show()
   $('.form-clear').trigger('reset')
   $('.instructions').show()
   $('.instructions').text(data.user.email + ' You have successfully logged in. Select "View Movies"')
   $('.login-buttons').hide(1700)
-  // $('.login-screen').hide()
+  $('.login-screen').hide()
   $('.logout-buttons').show(2100)
   $('#submit-login').modal('hide')
   $('.title-top').show()

@@ -1,22 +1,33 @@
 @import 'colors'; // moves variables over from colors.scss file
 
 body {
-  background-color: $light-blue;
+  background: $light-blue;
+
+}
+
+.back-img {
+  background-image:  url('../img/theater-transparent.png') no-repeat center;
+  background-size: cover;
+  min-height: 100vh;
+
 }
 
 .login-screen {
-  // background: url('../img/theater.jpg') no-repeat;
-  // background-size: cover;
-  // height: 675px;
-  // width: auto;
+  background: url('../img/theater2.jpg') no-repeat center;
+  background-size: cover;
+  min-height: 90vh;
+}
+
+.container-fluid {
+  padding-top: 15px;
 }
 
 .footer {
-  bottom: 0;
-  height: 60px;
+  bottom: 5px;
+  height: 30px;
   line-height: 60px;
-  position: absolute;
-  width: 100%;
+  // position: absolute;
+
 }
 
 .display {
@@ -74,7 +85,13 @@ h1 {
 }
 
 .signature {
+  color: $black;
   text-align: center;
+}
+
+.sig-link {
+  color: $black;
+  text-decoration: underline;
 }
 
 .title-top {
@@ -83,5 +100,9 @@ h1 {
 }
 
 button {
-  margin: 10px 30px;
+
+  background-color: #22477f;
+  color: $white;
+  margin-left: 30px;
+  width: auto;
 }
