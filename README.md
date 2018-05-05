@@ -1,9 +1,13 @@
 Groovie Movie is an app to share movie favorites and rating among friends.  Unlike other rating systems, Groovie Movie uses ratings from people you know and whose opinions you trust.
 
+The first release of this app allows users to input their movies and ratings.  This was completed in a 1 week sprint as part of a project for General Assembly.
+
+Future releases will 1) allow logged in users see their friend's ratings and 2) query TMDb's API to get movie info.
+
 The app can be found deployed here:
 https://3point14guy.github.io/browser-groovy-movie/
 
-At this stage of deployment, users can add movies to the list and add their rating for that movie.
+At this stage of deployment, users can manage their own movie list.
 
 User stories:
 https://user-images.githubusercontent.com/28842407/28465330-57c44efc-6df6-11e7-832a-35bc62930037.png
@@ -15,7 +19,7 @@ https://user-images.githubusercontent.com/28842407/28465344-628b82b0-6df6-11e7-9
 This project was started with the SQL database being built first and can be found at:
 https://github.com/3point14guy/rails-api-groovy-movie
 
-The front end of the project was started with the HTML and I used bootstrap to build up a series of modals for sending my api calls.  I tested the authentication calls first and then moved on to testing the calls for the SQL database I created.  I used handlebars to help return the information from my GET request and loved the fact that I could generate buttons there for handling my update and delete requests.  It was easy to tie the id for my SQL table rows to these buttons, but getting modals to submit from these handlebars generated buttons was trickier.
+The front end of the project was started with the HTML and I used bootstrap to build up a series of modals that trigger sending my api calls via AJAX.  I tested the authentication calls first and then moved on to testing the calls for the SQL database I created.  I used handlebars to help return the information from my GET request and loved the fact that I could generate buttons there for handling my update and delete requests.  It was easy to tie the id for my SQL table rows to these buttons, but getting modals to submit from these handlebars generated buttons was trickier.
 
 The first hurdle was the event listeners, which I had to repostition into the function for my successful GET request in the ui.js file.  However, calling the update and delete functions from my events.js file was creating a circular reference.  Moving these functions to the ui file was a work around, but it was messy and it seemed that there should be a more elegant solution. I was also running into two additional hurdles here, the most important being that subsequent get requests would not accurately reflect the changes I was making with my PATCH and DELETE requests.
 
