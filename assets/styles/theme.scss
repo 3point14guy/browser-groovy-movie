@@ -1,13 +1,14 @@
 @import 'colors'; // moves variables over from colors.scss file
 
 body {
-  background: $light-blue;
-
+  background-color: $light-blue;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0V0zm10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm20 0a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM10 37a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm10-17h20v20H20V20zm10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14z' fill='%239C92AC' fill-opacity='0.18' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
 .back-img {
-  background-image:  url('../img/theater-transparent.png') no-repeat center;
+  background: url('https://user-images.githubusercontent.com/28842407/39658089-3fbcc7fc-4fdd-11e8-9cdb-a57c4ba4cd5c.jpg') no-repeat center;
   background-size: cover;
+  display: none;
   min-height: 100vh;
 
 }
@@ -25,24 +26,42 @@ body {
 .footer {
   bottom: 5px;
   height: 30px;
-  line-height: 60px;
+  // line-height: 60px;
   // position: absolute;
 
 }
 
+// .table-bordered {
+//     border: 1px solid #23477e;
+// }
+
+.table {
+  margin-bottom: 0;
+}
+
+table {
+  background-color: $light-blue !important;
+  // border: 1px solid #23477e;
+  // border-color: #23477e;
+  // border-width: 1px;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
 .display {
   display: none;
+  height: 50vh;
 }
 
 .display-list {
-  border: 1px solid $white;
   display: none;
-  height: 200px;
-  overflow: scroll;
+  max-height: 40vh;
+  overflow-y: scroll;
 }
 
 .api-buttons {
   display: none;
+
 }
 
 .show-buttons {
@@ -51,6 +70,7 @@ body {
 
 h1 {
   font-size: 55px;
+  margin-top: 0;
   text-align: center;
 }
 
@@ -59,7 +79,6 @@ h1 {
   font-size: 25px;
   margin: 2px auto 25px;
   text-align: center;
-  text-shadow: 2px 2px $black;
 }
 
 .added {
@@ -85,24 +104,47 @@ h1 {
 }
 
 .signature {
-  color: $black;
+  color: $dark-red;
   text-align: center;
 }
 
 .sig-link {
-  color: $black;
+  color: $dark-red;
   text-decoration: underline;
 }
 
 .title-top {
   color: $dark-red;
-  text-shadow: 3px 3px $black;
+  display: none;
 }
 
 button {
-
-  background-color: #22477f;
+  background-color: $darkslateblue;
   color: $white;
-  margin-left: 30px;
+  margin: 10px 20px;
   width: auto;
+}
+
+.btn:hover {
+  color: $light-blue !important;
+}
+
+.btn:focus {
+  color: $light-blue !important;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (max-width: 450px) {
+  img {
+    width: 80%;
+    }
+
+  .instructions {
+    font-size: 1em;
+  }
 }

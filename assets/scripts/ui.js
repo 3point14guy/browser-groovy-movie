@@ -14,7 +14,7 @@ const signInSuccess = (data) => {
   $('.display').show()
   $('.form-clear').trigger('reset')
   $('.instructions').show()
-  $('.instructions').text(data.user.email + ' You have successfully logged in. Select "View Movies"')
+  $('.instructions').text(data.user.email + ' You have successfully logged in.')
   $('.login-buttons').hide(1700)
   $('.login-screen').hide()
   $('.logout-buttons').show(2100)
@@ -51,6 +51,7 @@ const logoutSuccess = function () {
   $('.added').hide()
   $('.updated').hide()
   $('.deleted').hide()
+  $('.title-top').hide()
 }
 
 const logoutFailure = function (error) {
@@ -63,7 +64,7 @@ const allMoviesSuccess = function (data) {
   $('.display-list').show()
   $('.display-list').empty()
   $('.display').show()
-  $('.instructions').text('This is your current list.')
+  // $('.instructions').text('This is your current list.')
   $('.show-buttons').show(300)
   $('.display-list').prepend(displayMoviesHTML)
   $('api-buttons').show()
@@ -74,6 +75,7 @@ const allMoviesFailure = function (error) {
 }
 
 const deleteMovieSuccess = function () {
+
   $('.instructions').text('Movie successfully deleted.')
   // $('.form-clear').trigger('reset')
   // $('#delete-a-movie').modal('hide')
@@ -83,6 +85,7 @@ const deleteMovieFailure = function (error) {
 }
 
 const addMovieSuccess = function () {
+  $('.instructions').empty()
   $('.instructions').text('Movie successfully added.')
   // $('.form-clear').trigger('reset')
   // $('#add-a-movie').modal('hide')
